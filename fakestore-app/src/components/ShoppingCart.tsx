@@ -7,6 +7,9 @@ const ShoppingCart = () => {
     const dispatch = useDispatch();
     const items = useSelector((state: RootState) => state.cart.items);
 
+    const totalItems = items.reduce((sum, item) => sum + item.count, 0);
+    const totalPrice = items.reduce((sum, item) => sum + item.count * item.price, 0);
+
     const handleRemove = (id: number) => {
         dispatch(removeFromCart(id));
     };
@@ -40,6 +43,10 @@ const ShoppingCart = () => {
                         />
                     </div>
                     ))}
+                    <div style={{marginTop: '1rem', fontWeight: 'bold'}}>
+                        <strong>Total Items: {totalItems}</strong>
+                        <strong>Total Price: {totalPrice.toFixed(2)}</strong>
+                    </div>
                     <button onClick={handleClear}>Clear Cart</button>
                 </>
             )}
