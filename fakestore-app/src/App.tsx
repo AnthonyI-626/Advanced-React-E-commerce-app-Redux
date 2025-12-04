@@ -8,8 +8,10 @@ function App() {
   return (
     <BrowserRouter>
     <nav>
+      <div style ={{display: 'flex', gap: '1rem', padding: '1rem'}}>
       <Link to='/'>Home</Link>
       <Link to='/cart'>Cart</Link>
+      </div>
     </nav>
     <Routes>
       <Route path='/' element={<Home />} />

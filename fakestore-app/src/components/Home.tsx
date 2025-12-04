@@ -63,7 +63,7 @@ const Home = () => {
         <div>
             <h1>Products</h1>
             <Link to='/cart'>
-                <button style={{marginBottom: '1rem'}}>Go To Cart</button>
+                <button style={{marginBottom: '1rem', marginRight: '1rem'}}>Go To Cart</button>
             </Link>
 
             <select
@@ -86,7 +86,7 @@ const Home = () => {
                     <p>${p.price}</p>
                     <p>{p.description}</p>
                     <p> {p.rating?.rate} ({p.rating?.count} reviews)</p>
-                    <button onClick={() => handleAddToCart(p)}>Add to Cart</button>
+                    <button  onClick={() => handleAddToCart(p)}>Add to Cart</button>
                 </div>
             ))}
         </div>

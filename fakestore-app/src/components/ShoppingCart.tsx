@@ -40,7 +40,7 @@ const ShoppingCart = () => {
                         <img src={item.image} alt={item.title} width={50} />
                         <span>{item.title} - ${item.price}</span>
                         <span> x {item.count}</span>
-                        <button onClick={() => handleRemove(item.id)}>Remove</button>
+                        <button style = {{marginRight: '1rem', marginLeft: '1rem'}} onClick={() => handleRemove(item.id)}>Remove</button>
                         <input
                             type="number"
                             value={item.count}
@@ -54,7 +54,7 @@ const ShoppingCart = () => {
                         <strong>Total Price: {totalPrice.toFixed(2)}</strong>
                     </div>
                     <button onClick={handleCheckout}>Checkout</button>
-                    <button onClick={handleClear}>Clear Cart</button>
+                    <button style={{marginLeft: '1rem'}} onClick={handleClear}>Clear Cart</button>
                 </>
             )}
         </div>
