@@ -18,6 +18,12 @@ const ShoppingCart = () => {
         dispatch(clearCart());
     };
 
+    const handleCheckout = () => {
+        dispatch(clearCart());
+        sessionStorage.removeIten('cart');
+        alert('Checkout successful! Thank you for your purchase.');
+    }
+
     const handleQuantityChange = (id: number, count: number) => {
         dispatch(updateQuantity({id, count}));
     };
@@ -47,6 +53,7 @@ const ShoppingCart = () => {
                         <strong>Total Items: {totalItems}</strong>
                         <strong>Total Price: {totalPrice.toFixed(2)}</strong>
                     </div>
+                    <button onClick={handleCheckout}>Checkout</button>
                     <button onClick={handleClear}>Clear Cart</button>
                 </>
             )}
