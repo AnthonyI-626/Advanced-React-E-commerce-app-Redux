@@ -1,6 +1,8 @@
 import {useSelector, useDispatch} from 'react-redux';
 import type {RootState} from '../store/store';
 import {removeFromCart, clearCart, updateQuantity} from '../features/cart/cartSlice';
+import {addDoc, collection, serverTimestamp} from 'firebase/firestore';
+import { auth, db} from '../firebaseConfig';
 
 const ShoppingCart = () => {
 
@@ -10,7 +12,7 @@ const ShoppingCart = () => {
     const totalItems = items.reduce((sum, item) => sum + item.count, 0);
     const totalPrice = items.reduce((sum, item) => sum + item.count * item.price, 0);
 
-    const handleRemove = (id: number) => {
+    const handleRemove = (id: string) => {
         dispatch(removeFromCart(id));
     };
 
@@ -18,13 +20,28 @@ const ShoppingCart = () => {
         dispatch(clearCart());
     };
 
-    const handleCheckout = () => {
-        dispatch(clearCart());
-        sessionStorage.removeIten('cart');
-        alert('Checkout successful! Thank you for your purchase.');
+    const handleCheckout = async () => {
+        try { 
+            const user = auth.currentUser;
+            if (!user) { 
+                alert('Please log in to proceed with checkout.');
+                return;
+            }
+            await addDoc(collection(db, 'orders'), { 
+                userId: user.uid,
+                products: items,
+                totalPrice,
+                ccreatedAt: serverTimestamp(),
+            });
+            dispatch(clearCart());
+            sessionStorage.removeItem('cart');
+            alert('Order placed successfully!');
+        } catch (err) {
+            console.error('Checkout error:', err);
+        }
     }
 
-    const handleQuantityChange = (id: number, count: number) => {
+    const handleQuantityChange = (id: string, count: number) => {
         dispatch(updateQuantity({id, count}));
     };
 

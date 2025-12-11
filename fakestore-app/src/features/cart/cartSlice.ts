@@ -2,7 +2,7 @@ import type { PayloadAction} from '@reduxjs/toolkit';
 import {createSlice} from '@reduxjs/toolkit';
 
 export interface CartItem {
-    id: number;
+    id: string;
     title: string;
     price: number;
     image: string;
@@ -31,14 +31,14 @@ const cartSlice = createSlice({
                 state.items.push({ ...action.payload, count: 1});
             }
           },
-          removeFromCart: (state, action: PayloadAction<number>) => {
+          removeFromCart: (state, action: PayloadAction<string>) => {
             state.items = state.items.filter(item => item.id !== action.payload);
           },
           clearCart: (state) => {
             state.items = [];
           },
 
-          updateQuantity: (state, action: PayloadAction<{id: number; count: number;}>) => {
+          updateQuantity: (state, action: PayloadAction<{id: string; count: number;}>) => {
             const item = state.items.find(i => i.id === action.payload.id);
             if (item) {
                 item.count = action.payload.count;
