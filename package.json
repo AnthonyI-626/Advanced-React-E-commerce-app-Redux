@@ -1,4 +1,10 @@
 {
+  "name": "fakestore-app",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "test": "vitest"
+  },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.0",
