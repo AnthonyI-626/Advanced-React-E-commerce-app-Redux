@@ -1,7 +1,4 @@
-jest.mock("../firebaseConfig", () => ({
-  auth: {},
-  db: {}
-}), { virtual: true });
+jest.mock("../firebaseConfig");
 
 jest.mock("firebase/auth", () => ({
   signInWithEmailAndPassword: jest.fn().mockResolvedValue({}),
