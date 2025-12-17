@@ -39,10 +39,10 @@
 git clone https://github.com/AnthonyI-626/Advanced-React-E-commerce-app-Redux
 cd fakestore-app
 
-Testing
+###Testing
 This project includes both unit and integration tests to ensure reliability and maintainability.
 
-Unit Testing
+#Unit Testing
 Framework: Jest + React Testing Library
 
 Purpose: Validate individual components and functions in isolation.
@@ -55,10 +55,10 @@ Examples:
 
   Ensuring Redux slices behave as expected
 
-Run unit tests with:
+##Run unit tests with:
   npm test (in fakestore-app)
 
-Integration Testing
+#Integration Testing
 Framework: Jest + React Testing Library
 
 Purpose: Verify that multiple components and services work together.
@@ -71,10 +71,10 @@ Examples:
 
   Redux store integrates correctly with React components
 
-Run integration tests with coverage:
+##Run integration tests with coverage:
   npm test --coverage (in fkaestore-app)
 
-Coverage Reporting
+#Coverage Reporting
 Coverage reports are generated automatically when running tests with --coverage.
 
 Reports include statements, branches, functions, and lines.
