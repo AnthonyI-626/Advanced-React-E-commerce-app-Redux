@@ -11,6 +11,9 @@ on:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: fakstore-app
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -23,6 +26,9 @@ jobs:
   Deploy-Production:
     needs: build-and-test  
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: fakestore-app
     steps:
       - uses: actions/checkout@v2
       - name: Install Vercel CLI
