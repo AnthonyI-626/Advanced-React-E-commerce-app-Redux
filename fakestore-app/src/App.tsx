@@ -4,7 +4,7 @@ import Home from './components/Home';
 
 function App() {
   
-
+console.log("Firebase API Key:", import.meta.env.VITE_FIREBASE_API_KEY);
   return (
     <BrowserRouter>
     <nav>
@@ -19,6 +19,7 @@ function App() {
     </Routes>
     </BrowserRouter>
   )
+  
 }
 
 export default App
