@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "test": "vitest"
+    "test": "jest"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.9.1",

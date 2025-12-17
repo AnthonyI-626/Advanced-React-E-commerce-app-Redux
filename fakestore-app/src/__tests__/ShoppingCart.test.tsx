@@ -5,7 +5,7 @@ import ShoppingCart from '../components/ShoppingCart';
 
 const mockStore = configureStore([]);
 
-describe("SHoppingCart", () => {
+describe("ShoppingCart", () => {
     it("shows empty cart message", () => {
         const store = mockStore({ cart: { items: []}});
         render(
